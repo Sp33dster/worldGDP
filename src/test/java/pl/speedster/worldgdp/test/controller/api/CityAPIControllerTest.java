@@ -51,7 +51,7 @@ public class CityAPIControllerTest {
     public void setup() {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
         cityDAO.setNamedParameterJdbcTemplate(namedParameterJdbcTemplate);
-    }
+        }
 
     @Test
     public void testGetCities() throws Exception {
