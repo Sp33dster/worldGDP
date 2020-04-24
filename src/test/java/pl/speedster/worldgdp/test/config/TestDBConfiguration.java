@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 public class TestDBConfiguration {
 
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         return new EmbeddedDatabaseBuilder()
                 .generateUniqueName(true)
                 .setType(EmbeddedDatabaseType.H2)
@@ -22,10 +22,11 @@ public class TestDBConfiguration {
                 .build();
     }
 
-    @Bean("testTemplate")
-    public NamedParameterJdbcTemplate namedParameterJdbcTemplate(){
-        NamedParameterJdbcTemplate namedParameterJdbcTemplate =
+    @Bean("namedParamJdbcTemplate")
+    public NamedParameterJdbcTemplate namedParamJdbcTemplate() {
+        NamedParameterJdbcTemplate namedParamJdbcTemplate =
                 new NamedParameterJdbcTemplate(dataSource());
-        return namedParameterJdbcTemplate;
+        System.out.println("********************************** ->"+namedParamJdbcTemplate);
+        return namedParamJdbcTemplate;
     }
 }
